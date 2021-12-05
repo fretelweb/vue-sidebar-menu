@@ -118,7 +118,7 @@ export const itemMixin = {
         this.$router &&
         this.item &&
         this.item.href !== undefined &&
-        this.item.href.indexOf("http") !== -1
+        this.item.href.indexOf("http") === -1
       );
     },
     show() {
