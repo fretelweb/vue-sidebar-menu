@@ -4,6 +4,7 @@
     :class="[{'first-item' : firstItem }, {'mobile-item' : mobileItem}, {'open-item' : show}, {'active-item' : active}, {'parent-active-item' : childActive}]"
     @mouseenter="mouseEnter($event)"
   >
+  {{ isRouterLink }}
     <template v-if="isRouterLink">
       <router-link
         class="vsm-link"
@@ -128,8 +129,8 @@
 </template>
 
 <script>
-import ListItem from './ListItem.vue'
-import { itemMixin, animationMixin } from '../mixin'
+import ListItem from "./ListItem.vue";
+import { itemMixin, animationMixin } from "../mixin";
 
 export default {
   components: {
@@ -170,17 +171,22 @@ export default {
     }
   },
   methods: {
-    mouseEnter (event) {
-      if (this.isCollapsed && this.firstItem && !this.mobileItem && !this.item.disabled) {
-        this.$parent.$emit('mouseEnterItem', {
+    mouseEnter(event) {
+      if (
+        this.isCollapsed &&
+        this.firstItem &&
+        !this.mobileItem &&
+        !this.item.disabled
+      ) {
+        this.$parent.$emit("mouseEnterItem", {
           item: this.item,
           pos:
-              event.currentTarget.getBoundingClientRect().top -
-              this.$parent.$el.getBoundingClientRect().top,
+            event.currentTarget.getBoundingClientRect().top -
+            this.$parent.$el.getBoundingClientRect().top,
           height: this.$el.offsetHeight
-        })
+        });
       }
     }
   }
-}
+};
 </script>
