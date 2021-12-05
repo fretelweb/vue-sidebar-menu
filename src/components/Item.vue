@@ -4,7 +4,6 @@
     :class="[{'first-item' : firstItem }, {'mobile-item' : mobileItem}, {'open-item' : show}, {'active-item' : active}, {'parent-active-item' : childActive}]"
     @mouseenter="mouseEnter($event)"
   >
-  {{ isRouterLink }}
     <template v-if="isRouterLink">
       <router-link
         class="vsm-link"
