@@ -114,7 +114,12 @@ export const itemMixin = {
   },
   computed: {
     isRouterLink() {
-      return this.$router && this.item && this.item.href !== undefined;
+      return (
+        this.$router &&
+        this.item &&
+        this.item.href !== undefined &&
+        this.item.href.indexOf("http") !== -1
+      );
     },
     show() {
       if (!this.item || !this.item.child) return false;
